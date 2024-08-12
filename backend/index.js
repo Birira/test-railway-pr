@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 const d = new Date()
 const storage = multer.diskStorage({
     destination: path.join(__dirname, "public/uploads"), filename(req, file, cb){
-        cb(null, d.getTime() + path.extname(file.originalname));
+        cb(null, d.getTime() + Math.floor(Math.random() * 100));
     }
 });
 app.use(multer({ storage }).single("image"));
