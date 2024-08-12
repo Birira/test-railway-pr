@@ -13,10 +13,9 @@ app.set("port", 3000);
 require("./database");
 //middlewares
 app.use(morgan("dev"));
-const d = new Date()
 const storage = multer.diskStorage({
     destination: path.join(__dirname, "public/uploads"), filename(req, file, cb){
-        cb(null, toString(d.getTime() + Math.floor(Math.random() * 100)));
+        cb(null, Date.now() + path.extname(file.originalname));
     }
 });
 app.use(multer({ storage }).single("image"));
