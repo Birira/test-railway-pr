@@ -11,6 +11,7 @@ const app = express();
 //Configuraciones
 app.set("port", 3000);
 require("./database");
+
 //middlewares
 app.use(morgan("dev"));
 const storage = multer.diskStorage({
