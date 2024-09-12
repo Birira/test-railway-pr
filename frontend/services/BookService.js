@@ -5,7 +5,8 @@ class BookService{
 
     async getBooks(){
         const res = await fetch(this.URI);
-        const books = await res.json();
+        let books = await res.json();
+        books = books.reverse();
         return books;
     }
 
