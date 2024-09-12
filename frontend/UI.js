@@ -4,7 +4,8 @@ import { format } from "timeago.js";
 
 class UI{
     async renderBooks(){
-        const books = await bookService.getBooks().reverse();
+        const books = await bookService.getBooks();
+        books = books.reverse();
 
         const booksContainer = document.getElementById("books-cards");
         booksContainer.innerHTML = "";
