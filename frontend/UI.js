@@ -5,11 +5,11 @@ import { format } from "timeago.js";
 class UI{
     async renderBooks(){
         const books = await bookService.getBooks();
-        books = books.reverse();
+        const booksR = books.reverse();
 
         const booksContainer = document.getElementById("books-cards");
         booksContainer.innerHTML = "";
-        books.forEach(book => {
+        booksR.forEach(book => {
             const div = document.createElement("div");
             div.className = "";
             div.innerHTML = `
